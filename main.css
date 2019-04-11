@@ -1,0 +1,135 @@
+
+/* Chrome, Safari and Opera syntax */
+:-webkit-full-screen {
+  background-color: white;
+}
+
+/* Firefox syntax */
+:-moz-full-screen {
+  background-color: white;
+}
+
+/* IE/Edge syntax */
+:-ms-fullscreen {
+  background-color: white;
+}
+
+/* Standard syntax */
+:fullscreen {
+  background-color: white;
+}
+
+/* Horizontal Navbar links on mouse-over */
+.navbar div a:hover {
+  background-color:black;
+}
+
+  /* The side navigation menu */
+.sidenav {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - main.js changes this value */
+  position: fixed; /* Stay in place */
+  z-index: 3; /* Stay on top */
+  top: 0; /* if top=0 then sidenav hides navbar */          
+  left: 0;
+  background-color: #343A40; /*Sidenav background color */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+  display:block;
+}
+
+/* Plant dropdowns on side navigation bar */
+#sidenav-dropdown.dropdown-btn {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #818181;
+  display: block;
+  border: none;
+  background: none;
+  width:100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+  transition: 0.3s;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+  position: absolute;
+  width:auto;
+  height:auto;
+  top: 0px;
+  right: 25px;
+  font-size: 37px;
+  margin-left: 5px;
+  text-align: right;
+  border: none;
+  background-color: #343A40;
+  color:rgba(255,255,255,0.5);
+}
+
+.sidenav .closebtn:hover {
+  color:rgba(255,255,255,1);
+  text-decoration: none;
+}
+
+/* When mouse over plants on sidenav then change background color */
+#sidenav-dropdown.dropdown-btn:hover {
+  background-color:black;
+  color: #F1F1F1;  
+}
+
+#sidenav-dropdown.dropdown-btn.active {
+  background-color: black;
+  color:white;
+}
+
+/* Style the caret down icon */
+.fa-caret-down {
+  float: right;
+  padding-right: 8px;
+}
+
+/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+.dropdown-container.plant {
+  display: block;
+  background-color: #343A40;
+  padding-left: 8px;
+}
+
+.dropdown-item.machine {
+  color:white;
+  padding-left: 20px;
+}
+
+/* When mouse over the dropdown items, change their color */
+.dropdown-item.machine:hover {
+  background-color:rgba(255,0,0,0.8);
+  color: #F1F1F1;
+}
+
+.dropdown-item.machine span{
+  padding-left: 15px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+#overlay {
+  position: fixed; /* Sit on top of the page content */
+  display: none; /* Hidden by default */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0px; 
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+  cursor: pointer; /* Add a pointer on hover */
+}

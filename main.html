@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Maintenance Application</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- INTERNET -->
+    <!--Bootstrap 4.1.3-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <!--Bootstrap-select 1.13.1-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.3/css/bootstrap-select.css" />
+    <!--Font Awesome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <!--CSS -->
+    <link rel="stylesheet" type="text/css" media="screen" href="./main.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="./dashboard/dashboard.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="./maintenance/maintenance.css" />
+    <!--Jquery 3.3.1-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!--Bootstrap 4.1.3-->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+    <!--Bootstrap-select 1.13.3-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.3/js/bootstrap-select.min.js"></script>
+    <!--Angularjs 1.7.5-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular-route.min.js"></script>
+    <!-- D3.JS -->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <!-- charts.JS -->
+    <script type="text/javascript" src="/libs/charts.min.js"></script>
+    
+    <!-- Email.JS -->
+    <script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init("user_s4md8dy7u9bPgb5EMD6Bo");
+        })();
+    </script>
+
+    <!--Controllers-->
+    <script src="./app.js"></script>
+    <script src="./navigationCtrl.js"></script>
+    <script src="./home/homeCtrl.js"></script>
+    <script src="./dashboard/dashboardCtrl.js"></script>
+    <script src="./maintenance/maintenanceCtrl.js"></script>
+
+    <style></style>
+</head>
+
+<body ng-app="myApp" >
+
+    <div ng-controller="navigationCtrl">
+
+        <!-- Horizontal Navigation Bar -->
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#!main"> 
+                <img src="./images/logo.png" width="65" height="31" class="d-inline-block align-top" alt="">
+                DISAC
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" 
+                data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" 
+                aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav" bs-active-link>
+                    <a class="nav-item nav-link" data-toggle="collapse" 
+                        data-target=".navbar-collapse.show" href="javascript:void(0)" ng-click="openNav()">
+                            <i class="fas fa-city"></i> Prod. Lines
+                    </a>
+                    <a class="nav-item nav-link active" data-toggle="collapse" 
+                        data-target=".navbar-collapse.show" ng-href="#!home/{{machineActive}}">
+                            <i class="fas fa-network-wired"></i> Home <span class="sr-only">(current)</span>
+                    </a>
+                    <a class="nav-item nav-link" data-toggle="collapse" 
+                        data-target=".navbar-collapse.show" ng-href="#!dashboard/{{machineActive}}">
+                            <i class="fas fa-chart-bar"></i> Dashboard
+                    </a>
+                    <a class="nav-item nav-link" data-toggle="collapse" 
+                        data-target=".navbar-collapse.show" ng-href="#!maintenance/{{machineActive}}">
+                            <i class="fas fa-file-contract"></i> Maintenance
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Icons Horizontal Navigation Bar -->
+
+            <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
+                <li class="nav-item">
+                    <a class="nav-link" id="btn-fullscreen" href="javascript:void(0)" ng-click="fullScreen($event)">
+                        <i class="fas fa-tv"></i>
+                    </a>
+                </li>
+            </ul>
+
+        </nav>
+
+        <!-- Vertical Navigation Bar -->
+        
+        <div id="mySidenav" class="sidenav">
+
+            <a class="closebtn" href="javascript:void(0)" ng-click="closeNav()">&times;</a>
+
+            <div ng-repeat="machine in machines">
+                <a class="dropdown-item machine" ng-href="#!home/{{machine}}" ng-click="selectMachine(machine)">
+                    <i class="fas fa-kaaba"></i><span>{{machine}}</span>    
+                </a>
+            </div>
+
+        </div>
+
+        <div id="overlay" ng-click="overlayOff()"></div>
+        
+    </div>
+     
+    <div id="main" class=ng-view></div>
+
+</body>
+</html>

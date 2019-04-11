@@ -1,0 +1,203 @@
+<div class="row gauges-container">
+
+    <div class="col-6 col-md-4 col-lg-2 text-center gauge-container">
+        <div class="badge badge-dark gauge-chart-tiltle">
+            Water Temperature
+        </div>
+        <div class="gauge-chart">
+            <div id="waterTemp"></div>
+        </div>
+    </div>
+
+    <div class="col-6 col-md-4 col-lg-2 text-center gauge-container">
+        <div class="badge badge-danger gauge-chart-tiltle">
+            Water Pressure
+        </div>
+        <div class="gauge-chart">
+            <div id="waterPressure"></div>
+        </div>
+    </div>
+
+    <div class="col-6 col-md-4 col-lg-2 text-center gauge-container">
+        <div class="badge badge-success gauge-chart-tiltle">
+            Relative Humidity
+        </div>
+        <div class="gauge-chart">
+            <div id="relHumidity"></div>
+        </div>
+    </div>
+
+    <div class="col-6 col-md-4 col-lg-2 text-center gauge-container">
+        <div class="badge badge-primary gauge-chart-tiltle">
+            Air Temperature
+        </div>
+        <div class="gauge-chart">
+            <div id="airTemp"></div>
+        </div>
+    </div>
+
+    <div class="col-6 col-md-4 col-lg-2 text-center gauge-container">
+        <div class="badge badge-warning gauge-chart-tiltle">
+            Air Pressure
+        </div>
+        <div class="gauge-chart">
+            <div id="airPressure"></div>
+        </div>
+    </div>
+
+    <div class="col-6 col-md-4 col-lg-2 text-center gauge-container">
+        <div class="badge badge-secondary gauge-chart-tiltle">
+            Oil Temperature
+        </div>
+        <div class="gauge-chart">
+            <div id="oilTemp"></div>
+        </div>
+    </div>
+
+</div>
+
+<div class="row time-container">
+
+    <div class="col-lg-4 machine-time-container">
+        <div class="text-center bg-dark text-white rounded machine-time-title">
+            Machine Time
+        </div>
+        <div class="d-flex justify-content-center machine-time-chart">
+            <div id="machineTime"></div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-lg-3 material-consumption">
+        <div class="material-title text-center bg-info rounded text-white">
+            Material Consumption
+        </div>
+        <div class="material-table">
+            <table class="table table-sm table-striped">
+                <thead class="thead-dark">
+                    <tr">
+                        <th scope="col">Material</th>
+                        <th scope="col">Kg</th>
+                        <th scope="col">%</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">Virgin</td>
+                        <td>{{material.virgin[0]}}</td>
+                        <td>{{material.virgin[1]}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Regrind</td>
+                        <td>{{material.regrind[0]}}</td>
+                        <td>{{material.regrind[1]}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Masterbatch</td>
+                        <td>{{material.masterbatch[0]}}</td>
+                        <td>{{material.masterbatch[1]}}</td>
+                    </tr>
+                    <tr class="bg-danger text-white">
+                        <th scope="row">Total</td>
+                        <td>{{material.total}}</td>
+                        <td>100</td>
+                    </tr>   
+                </tbody>
+            </table>         
+        </div>
+        <div class="total-material-consumption text-center text-primary font-weight-bold">
+            Average material consumption: {{material.consumption}} Kg/h
+        </div>
+    </div>
+
+    <div class="col-md-6 col-lg-2 energy-consumption">
+        <div class="energy-title text-center bg-secondary rounded text-white">
+            Energy Consumption
+        </div>
+        <div class="energy-table">
+            <table class="table table-sm table-striped">
+                <thead class="thead-dark">
+                    <tr">
+                        <th scope="col">Line</th>
+                        <th scope="col">V</th>
+                        <th scope="col">A</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">R</td>
+                        <td>{{energy.R[0]}}</td>
+                        <td>{{energy.R[1]}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">S</td>
+                        <td>{{energy.S[0]}}</td>
+                        <td>{{energy.S[1]}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">T</td>
+                        <td>{{energy.T[0]}}</td>
+                        <td>{{energy.T[1]}}</td>
+                    </tr> 
+                </tbody>
+            </table>         
+        </div>
+        <div class="total-material-consumption text-center text-primary font-weight-bold">
+            Average energy consumption: {{energy.power}} kW/h
+        </div>
+    </div>
+
+    <div class="col-lg-3 production">
+        <div class="production-title text-center bg-warning rounded">
+            Production Data
+        </div>
+        <div class="production-data">
+            <table class="table table-sm table-borderless">
+                <tbody>
+                    <tr>
+                        <th scope="row">Cycle Time</th>
+                        <td>{{cycleTime}} s</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Produced</th>
+                        <td>{{productionCounter}} bottles</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Quality</th>
+                        <td>{{quality}} %</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">kW per Kg</th>
+                        <td>{{kwKg}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">kw per bottle</th>
+                        <td>{{kwBottle}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+<div class="row ancillary-container">
+
+    <div class="col-lg-6 time-failure-container">
+        <div class="text-center bg-primary text-white rounded time-failure-title">
+            Ancillary Equipment
+        </div>
+        <div class="d-flex justify-content-center time-failure-chart">
+            <div id="timeFailure"></div>
+        </div>
+    </div>
+
+    <div class="col-lg-6 quality-control-container">
+        <div class="text-center bg-success text-white rounded quality-control-title">
+            Quality Control
+        </div>
+        <div class="d-flex justify-content-center quality-control-chart">
+            <div id="qualityControl"></div>
+        </div>
+    </div>
+
+</div>
